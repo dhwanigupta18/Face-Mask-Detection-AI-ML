@@ -1,0 +1,23 @@
+"""
+model.py
+Defines model building function (MobileNetV2 transfer learning).
+"""
+from tensorflow.keras.applications import MobileNetV2
+from tensorflow.keras.layers import AveragePooling2D, Dropout, Flatten, Dense, Input
+from tensorflow.keras.models import Model
+
+def build_mobilenet(input_shape=(224,224,3)):
+    baseModel = MobileNetV2(weights="imagenet", include_top=False, input_tensor=Input(shape=input_shape))
+    headModel = baseModel.output
+    headModel = AveragePooling2D(pool_size=(7,7))(headModel)
+    headModel = Flatten()(headModel)
+    headModel = Dense(128, activation="relu")(headModel)
+    headModel = Dropout(0.5)(headModel)
+    headModel = Dense(1, activation="sigmoid")(headModel)
+
+    model = Model(inputs=baseModel.input, outputs=headModel)
+
+    for layer in baseModel.layers:
+        layer.trainable = False
+
+    return model
