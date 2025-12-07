@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Face Mask Detection (AI/ML) - Project
 This repository contains a complete, ready-to-run Face Mask Detection project using TensorFlow/Keras and OpenCV.
 It uses transfer learning (MobileNetV2) for classification and provides a real-time webcam detector.
@@ -45,3 +46,6 @@ dataset/
 ## Notes
 - Training on CPU can be slow. Use GPU if available.
 - This repo uses MobileNetV2 transfer learning for better accuracy with smaller datasets.
+=======
+# Face-Mask-Detection-AI-ML
+>>>>>>> 008b559a6052f0343b5f0398bbabd63104cd5654
