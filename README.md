@@ -1,51 +1,138 @@
-<<<<<<< HEAD
-# Face Mask Detection (AI/ML) - Project
-This repository contains a complete, ready-to-run Face Mask Detection project using TensorFlow/Keras and OpenCV.
-It uses transfer learning (MobileNetV2) for classification and provides a real-time webcam detector.
+# 😷 Face Mask Detection using AI/ML (Web + Webcam App)
 
-## What is included
-- `src/` : Python source code (training, model, utils, realtime detector).
-- `notebooks/` : Project report and notes.
-- `requirements.txt` : Python dependencies.
-- `README.md` : This file.
-- `dataset/` : **(Not included)** Put your dataset here as described below.
-- `models/` : Trained model will be saved here after training.
+This project is a complete **AI/ML-based Face Mask Detection system** built using **TensorFlow, OpenCV, and Flask**, with both:
+- ✅ Real-time **Webcam Detection (Website)**
+- ✅ Image Upload Prediction (ML Inference)
+- ✅ Full end-to-end ML pipeline (Training → Testing → Deployment)
 
-## Dataset structure (place your images here)
-```
+This project is ideal for **AI/ML internships, final year projects, and real-world deployment demo.**
+
+---
+
+## 🚀 Features
+
+- 🔍 Detects **Mask / No Mask** using a trained CNN model
+- 📸 Real-time **webcam detection via browser**
+- 🌐 Flask-based **web application**
+- 📊 Trained using **Kaggle Face Mask Dataset**
+- ⚡ Works on **Apple Silicon (M1/M2)** with Conda
+- 📁 Clean project structure with GitHub support
+
+---
+
+## 🧠 Tech Stack
+
+- **Language:** Python  
+- **Deep Learning:** TensorFlow, Keras  
+- **Computer Vision:** OpenCV  
+- **Web Framework:** Flask  
+- **Frontend:** HTML, CSS, JavaScript  
+- **Environment:** Conda (Miniforge)
+
+---
+
+## 📁 Project Structure
+
+```text
+Face-Mask-Detection-AI-ML/
+│
+├── models/
+│   └── mask_detector.h5
+│
+├── src/
+│   ├── train.py
+│   ├── realtime_detector.py
+│   └── dataset_prep.py
+│
+├── templates/
+│   └── index.html
+│
+├── static/
+│   └── script.js
+│
+├── app.py
+├── requirements.txt
+├── req_no_tf.txt
+└── README.md
+⚙️ Environment Setup (Apple Silicon / macOS)
+1️⃣ Install Miniforge (Conda)
+bash Miniforge3-MacOSX-arm64.sh
+
+2️⃣ Create Environment
+conda create -n tf310 python=3.10 -y
+conda activate tf310
+
+3️⃣ Install TensorFlow
+conda install -c conda-forge tensorflow -y
+
+4️⃣ Install Project Packages
+pip install -r req_no_tf.txt
+
+📊 Dataset Preparation
+
+Create this folder structure:
+
 dataset/
-    with_mask/
-        img1.jpg
-        ...
-    without_mask/
-        img1.jpg
-        ...
-```
+├── with_mask/
+└── without_mask/
 
-## Quick start
-1. Create a virtual environment and install packages:
-   ```
-   python -m venv venv
-   source venv/bin/activate   # Linux / macOS
-   venv\Scripts\activate    # Windows
-   pip install -r requirements.txt
-   ```
 
-2. Prepare dataset in `dataset/` (see structure above).
+You can download the dataset from Kaggle:
+https://www.kaggle.com/datasets
 
-3. Train (example):
-   ```
-   python src/train.py --data_dir dataset --epochs 10 --batch_size 32 --model_out models/mask_detector.h5
-   ```
+Then verify dataset:
 
-4. Run real-time detector (after training or use pre-trained model):
-   ```
-   python src/realtime_detector.py --model models/mask_detector.h5
-   ```
+python src/dataset_prep.py --data_dir dataset
 
-## Notes
-- Training on CPU can be slow. Use GPU if available.
-- This repo uses MobileNetV2 transfer learning for better accuracy with smaller datasets.
-=======
-# Face-Mask-Detection-AI-ML
->>>>>>> 008b559a6052f0343b5f0398bbabd63104cd5654
+🏋️ Model Training
+python src/train.py --data_dir dataset --epochs 10 --batch_size 32 --model_out models/mask_detector.h5
+
+🧪 Real-time Webcam Detection (Local)
+python src/realtime_detector.py --model models/mask_detector.h5
+
+
+Press q to exit webcam.
+
+🌐 Web Application (Flask + Webcam)
+Run Web App:
+python app.py
+
+Open in Browser:
+http://127.0.0.1:5000
+
+
+Allow camera access → Click Start Detection
+
+🌍 Deployment (Public Website)
+
+This project can be deployed on:
+
+✅ Render (Flask backend + webcam)
+
+✅ HuggingFace Spaces (Image Upload Version)
+
+Deployment files:
+
+requirements.txt
+
+app.py
+
+Procfile (for Render)
+
+📌 Use Cases
+
+Smart surveillance systems
+
+COVID safety compliance tools
+
+Entry monitoring automation
+
+AI-based face analysis systems
+
+👩‍💻 Author
+
+Dhwani Gupta
+AI/ML Engineering Student
+GitHub: https://github.com/dhwanigupta18
+
+⭐ If you like this project, please give it a ⭐ on GitHub!
