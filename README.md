@@ -197,13 +197,13 @@ The model is evaluated using:
 
 # 📊 Results
 
-* Model achieves high accuracy (depends on dataset quality)
+* Model achieves high accuracy 
 * Real-time detection via webcam
 * Web-based detection via browser
 
 ### Sample Output
 
-(Add screenshots here for better evaluation)
+<img width="1470" height="956" alt="Screenshot 2026-03-30 at 10 12 48 PM" src="https://github.com/user-attachments/assets/cf3c3cd8-78f0-47be-8e5f-e1254cd6a614" />
 
 ---
 
