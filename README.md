@@ -1,39 +1,42 @@
 # 😷 Face Mask Detection using AI/ML (Web + Webcam App)
 
-This project is a complete **AI/ML-based Face Mask Detection system** built using **TensorFlow, OpenCV, and Flask**, with both:
-- ✅ Real-time **Webcam Detection (Website)**
-- ✅ Image Upload Prediction (ML Inference)
-- ✅ Full end-to-end ML pipeline (Training → Testing → Deployment)
+This project is a complete **AI/ML-based Face Mask Detection system** built using TensorFlow, OpenCV, and Flask.
 
-This project is ideal for **AI/ML internships, final year projects, and real-world deployment demo.**
+It supports:
 
----
+* ✅ Real-time Webcam Detection (Browser-based)
+* ✅ Image-based Prediction (ML Inference)
+* ✅ End-to-End Pipeline (Training → Testing → Deployment)
 
-## 🚀 Features
-
-- 🔍 Detects **Mask / No Mask** using a trained CNN model
-- 📸 Real-time **webcam detection via browser**
-- 🌐 Flask-based **web application**
-- 📊 Trained using **Kaggle Face Mask Dataset**
-- ⚡ Works on **Apple Silicon (M1/M2)** with Conda
-- 📁 Clean project structure with GitHub support
+This project is suitable for **AI/ML internships, academic submissions, and real-world demos**.
 
 ---
 
-## 🧠 Tech Stack
+# 🚀 Features
 
-- **Language:** Python  
-- **Deep Learning:** TensorFlow, Keras  
-- **Computer Vision:** OpenCV  
-- **Web Framework:** Flask  
-- **Frontend:** HTML, CSS, JavaScript  
-- **Environment:** Conda (Miniforge)
+* 🔍 Detects **Mask / No Mask** using a trained deep learning model
+* 📸 Real-time webcam detection via browser
+* 🌐 Flask-based web application
+* 📊 Trained on Face Mask dataset (Kaggle)
+* ⚡ Works on macOS (Apple Silicon) and other platforms
+* 📁 Clean and modular project structure
 
 ---
 
-## 📁 Project Structure
+# 🧠 Tech Stack
 
-```text
+* **Language:** Python
+* **Deep Learning:** TensorFlow, Keras
+* **Computer Vision:** OpenCV
+* **Web Framework:** Flask
+* **Frontend:** HTML, CSS, JavaScript
+* **Environment:** Conda / Virtual Environment
+
+---
+
+# 📁 Project Structure
+
+```
 Face-Mask-Detection-AI-ML/
 │
 ├── models/
@@ -54,85 +57,205 @@ Face-Mask-Detection-AI-ML/
 ├── requirements.txt
 ├── req_no_tf.txt
 └── README.md
-⚙️ Environment Setup (Apple Silicon / macOS)
-1️⃣ Install Miniforge (Conda)
-bash Miniforge3-MacOSX-arm64.sh
+```
 
-2️⃣ Create Environment
+---
+
+# ⚙️ Environment Setup
+
+## Option 1: macOS (Apple Silicon / M1/M2)
+
+### 1️⃣ Install Miniforge (Conda)
+
+```bash
+bash Miniforge3-MacOSX-arm64.sh
+```
+
+### 2️⃣ Create Environment
+
+```bash
 conda create -n tf310 python=3.10 -y
 conda activate tf310
+```
 
-3️⃣ Install TensorFlow
+### 3️⃣ Install TensorFlow
+
+```bash
 conda install -c conda-forge tensorflow -y
+```
 
-4️⃣ Install Project Packages
+### 4️⃣ Install Remaining Dependencies
+
+```bash
 pip install -r req_no_tf.txt
+```
 
-📊 Dataset Preparation
+---
 
-Create this folder structure:
+## Option 2: Standard Python (Windows/Linux)
 
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+# 📊 Dataset Preparation
+
+Create dataset structure:
+
+```
 dataset/
 ├── with_mask/
 └── without_mask/
+```
 
+Download dataset from Kaggle.
 
-You can download the dataset from Kaggle:
-https://www.kaggle.com/datasets
+Verify dataset:
 
-Then verify dataset:
-
+```bash
 python src/dataset_prep.py --data_dir dataset
+```
 
-🏋️ Model Training
+---
+
+# 🏋️ Model Training
+
+```bash
+python src/train.py --data_dir dataset --epochs 10 --batch_size 32 --model_out models/mask_detector.h5
+```
+
+---
+
+# 🧪 Real-Time Webcam Detection (CLI)
+
+```bash
+python src/realtime_detector.py --model models/mask_detector.h5
+```
+
+Press **q** to exit webcam.
+
+---
+
+# 🌐 Web Application (Flask + Webcam)
+
+Run the app:
+
+```bash
+python app.py
+```
+
+Open in browser:
+
+```
+http://127.0.0.1:5000
+```
+
+Allow camera access → click **Start Detection**
+
+---
+
+# 🖥️ Command Line Execution
+
+This project can be fully executed from the terminal:
+
+```bash
+# Train model
 python src/train.py --data_dir dataset --epochs 10 --batch_size 32 --model_out models/mask_detector.h5
 
-🧪 Real-time Webcam Detection (Local)
+# Run real-time detection
 python src/realtime_detector.py --model models/mask_detector.h5
 
-
-Press q to exit webcam.
-
-🌐 Web Application (Flask + Webcam)
-Run Web App:
+# Run web application
 python app.py
+```
 
-Open in Browser:
-http://127.0.0.1:5000
+---
 
+# 🔄 Workflow
 
-Allow camera access → Click Start Detection
+1. Dataset is prepared and labeled
+2. Model is trained using CNN (TensorFlow/Keras)
+3. Faces are detected using OpenCV
+4. Mask classification is performed
+5. Results are displayed via webcam or web interface
 
-🌍 Deployment (Public Website)
+---
+
+# 📈 Evaluation Metrics
+
+The model is evaluated using:
+
+* Accuracy
+* Precision
+* Recall
+* F1 Score
+* Confusion Matrix
+
+---
+
+# 📊 Results
+
+* Model achieves high accuracy (depends on dataset quality)
+* Real-time detection via webcam
+* Web-based detection via browser
+
+### Sample Output
+
+(Add screenshots here for better evaluation)
+
+---
+
+# 🧠 Model Choice
+
+A CNN-based deep learning model is used for classification.
+It provides a good balance between **accuracy and real-time performance**.
+
+---
+
+# ⭐ Unique Features
+
+* Real-time detection inside browser (Flask + webcam)
+* End-to-end ML pipeline
+* Dual interface (CLI + Web App)
+
+---
+
+# 🌍 Deployment
 
 This project can be deployed on:
 
-✅ Render (Flask backend + webcam)
+* ✅ Render (Flask backend)
+* ✅ HuggingFace Spaces (image inference version)
 
-✅ HuggingFace Spaces (Image Upload Version)
+Required files:
 
-Deployment files:
+* requirements.txt
+* app.py
+* Procfile (for Render)
 
-requirements.txt
+---
 
-app.py
+# 📌 Use Cases
 
-Procfile (for Render)
+* Smart surveillance systems
+* COVID safety compliance
+* Entry monitoring systems
+* AI-based face analysis
 
-📌 Use Cases
+---
 
-Smart surveillance systems
+# 👩‍💻 Author
 
-COVID safety compliance tools
-
-Entry monitoring automation
-
-AI-based face analysis systems
-
-👩‍💻 Author
-
-Dhwani Gupta
+**Dhwani Gupta**
 AI/ML Engineering Student
+
 GitHub: https://github.com/dhwanigupta18
 
-⭐ If you like this project, please give it a ⭐ on GitHub!
+---
+
+# ⭐ Support
+
+If you like this project, consider giving it a ⭐ on GitHub!
+
